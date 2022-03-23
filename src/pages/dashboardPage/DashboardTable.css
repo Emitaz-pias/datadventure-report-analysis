@@ -1,0 +1,9 @@
+.heading {
+  border: 10px 1px 1px 1px solid red !important;
+}
+.dashboardTable {
+  width: 95%;
+}
+.tablesBody {
+  cursor: pointer;
+}

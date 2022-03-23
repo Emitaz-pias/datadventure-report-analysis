@@ -1,9 +1,9 @@
-import NavBar from "./components/NavBar";
+import DashBoard from "./pages/dashboardPage/DashBoard";
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      <DashBoard />
     </div>
   );
 }

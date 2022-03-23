@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row, Table } from "react-bootstrap";
+import { Col, DropdownButton, Row, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronCircleRight,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
 import "./DashboardTable.css";
+import { Dropdown } from "bootstrap";
 
 const DashboardTable = () => {
   const [open, setOpen] = useState(false);
+  const [alreadyOpen, setAlreadyOpen] = useState(true);
+  const [responseId, setResponseId] = useState("");
 
   const [allResponses, setAllResponses] = useState([]);
 
@@ -20,10 +26,17 @@ const DashboardTable = () => {
     };
     loadSurveyResponsesFromServer();
   }, []);
-  console.log("our responses is", allResponses);
+  // const handleMouseEnter = () => {
 
-  const handleTdClick = () => {
-    setOpen(false);
+  // }
+  const handleTdClick = (surveyId, responseId, alredyOpen) => {
+    // console.log(surveyId);
+    if (alreadyOpen === true) {
+      setOpen(false);
+    } else {
+      setOpen(true);
+    }
+    setResponseId(responseId);
   };
   return (
     <main className="ms-5">
@@ -40,6 +53,40 @@ const DashboardTable = () => {
             User
           </Col>
         </Row>
+        <hr />{" "}
+        {allResponses.map((response) => (
+          <div>
+            <Row className="tBody">
+              <Col
+                onClick={() =>
+                  handleTdClick(response.surveyId, response._id, alreadyOpen)
+                }
+                onMouseLeave={() => setAlreadyOpen(false)}
+                className="ms-2"
+                md={5}
+              >
+                {response.surveyName}
+                {open === true && response._id === responseId ? (
+                  <FontAwesomeIcon icon={faChevronDown} />
+                ) : (
+                  <FontAwesomeIcon icon={faChevronCircleRight} />
+                )}
+              </Col>
+
+              <Col className="ms-5" md={3}>
+                Modified
+              </Col>
+              <Col className="ms-5" md={3}>
+                User
+              </Col>
+              {open === true && response._id === responseId ? (
+                <Row className="ms-5">hello</Row>
+              ) : null}
+            </Row>
+
+            <hr />
+          </div>
+        ))}
       </section>
     </main>
   );

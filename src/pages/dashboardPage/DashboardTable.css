@@ -1,5 +1,6 @@
 .responsesTable {
   width: 91% !important;
+  border-radius: 5px;
 }
 .thead {
   font-family: Fira Sans;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Col, Row, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
 import "./DashboardTable.css";
@@ -21,65 +21,27 @@ const DashboardTable = () => {
     loadSurveyResponsesFromServer();
   }, []);
   console.log("our responses is", allResponses);
-  // load the survey here
-  // useEffect(() => {
-  //   const loadDataFromServer = async () => {
-  //     const res = await fetch("https://dadsurveyresponses.herokuapp.com/");
-  //     const data = await res.json();
-  //   };
-  //   loadDataFromServer();
-  // }, []);
 
   const handleTdClick = () => {
     setOpen(false);
   };
   return (
-    <div className="ms-5 ps-5">
-      {/* <Table className="dashboardTable " striped bordered hover>
-        <thead>
-          <tr className="heading">
-            <th>Name</th>
-            <th>Modified</th>
-            <th>User</th>
-          </tr>
-        </thead>
-        <tbody className="tablesBody">
-          <tr onClick={handleTdClick}>
-            <td>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              <FontAwesomeIcon icon={faChevronCircleRight} />
-            </td>
-            <td>Lorem, ipsum dolor.</td>
-            <td>Lorem, ipsum dolor.</td>
-          </tr>
-          {
-            <tr>
-              {openImplementSite ? (
-                <span>
-                  <p>something</p>
-                </span>
-              ) : (
-                <p>nothing</p>
-              )}
-            </tr>
-          }
-          <tr onClick={handleTdClick}>
-            <td>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.{">"}
-            </td>
-            <td>Lorem, ipsum dolor.</td>
-            <td>Lorem, ipsum dolor.</td>
-          </tr>
-          <tr onClick={handleTdClick}>
-            <td>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.{">"}
-            </td>
-            <td>Lorem, ipsum dolor.</td>
-            <td>Lorem, ipsum dolor.</td>
-          </tr>
-        </tbody>
-      </Table> */}
-    </div>
+    <main className="ms-5">
+      <section className="responsesTable ms-5 border">
+        <Row className="thead   mt-3 mb-3">
+          {/* <span className="d-flex justify-content-around align-items-center"> */}
+          <Col className="ms-2" md={5}>
+            Name
+          </Col>
+          <Col className="ms-5" md={3}>
+            Modified
+          </Col>
+          <Col className="ms-5" md={3}>
+            User
+          </Col>
+        </Row>
+      </section>
+    </main>
   );
 };
 

@@ -1,9 +1,12 @@
-.heading {
-  border: 10px 1px 1px 1px solid red !important;
+.responsesTable {
+  width: 91% !important;
 }
-.dashboardTable {
-  width: 95%;
-}
-.tablesBody {
-  cursor: pointer;
+.thead {
+  font-family: Fira Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #727272;
 }

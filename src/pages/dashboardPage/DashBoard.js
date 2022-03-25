@@ -12,6 +12,8 @@ import SortByDropDown from "./SortByDropDown";
 import ViewBy from "./ViewBy";
 
 const DashBoard = () => {
+  const [allResponses, setAllResponses] = useState([]);
+
   // fuctions of modal
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -26,6 +28,9 @@ const DashBoard = () => {
   const handleNewDashboard = () => {
     openModal();
   };
+
+  // load all the responses here
+
   return (
     <div>
       {/* the nav section */}

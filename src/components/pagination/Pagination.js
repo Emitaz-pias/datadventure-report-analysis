@@ -39,31 +39,7 @@ const Pagination = () => {
   };
 
   return (
-    <div className="ms-5 ps-5 mt-2">
-      <div>
-        {/* <div className="row m-2">
-          {items.map((item) => {
-            return (
-              <div key={item.id} className="col-sm-6 col-md-4 v my-2">
-                <div
-                  className="card shadow-sm w-100"
-                  style={{ minHeight: 225 }}
-                >
-                  <div className="card-body">
-                    <h5 className="card-title text-center h2">
-                      Id :{item.id}{" "}
-                    </h5>
-                    <h6 className="card-subtitle mb-2 text-muted text-center">
-                      {item.email}
-                    </h6>
-                    <p className="card-text">{item.body}</p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div> */}
-      </div>
+    <div style={{ zIndex: "-1" }} className="ms-5 ps-5 mt-2">
       <ReactPaginate
         breakLabel="..."
         nextLabel=" >"

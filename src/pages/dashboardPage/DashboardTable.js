@@ -27,9 +27,7 @@ const DashboardTable = () => {
     };
     loadSurveyResponsesFromServer();
   }, []);
-  // const handleMouseEnter = () => {
 
-  // }
   const handleTdClick = (surveyId, responseId) => {
     // console.log(surveyId);
     setAlreadyOpen(!alreadyOpen);

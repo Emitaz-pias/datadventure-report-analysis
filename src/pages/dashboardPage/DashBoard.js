@@ -1,14 +1,31 @@
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import { Dropdown } from "bootstrap";
+import React, { useState } from "react";
+import Footer from "../../components/footer/Footer";
 import NavBar from "../../components/navBar/NavBar";
 import Pagination from "../../components/pagination/Pagination";
+import SetUpModal from "../setupModal/SetUpModal";
 import "./Dashboard.css";
 import DashboardTable from "./DashboardTable";
 import SortByDropDown from "./SortByDropDown";
 import ViewBy from "./ViewBy";
 
 const DashBoard = () => {
+  // fuctions of modal
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  // handle click on the new dashboard button
+  const handleNewDashboard = () => {
+    openModal();
+  };
   return (
     <div>
       {/* the nav section */}
@@ -22,12 +39,16 @@ const DashBoard = () => {
               className="me-5 searchInput form-control"
               type="text"
             />
-            <button className="custom-btn  btn ms-5">
+            <button
+              onClick={handleNewDashboard}
+              className="custom-btn  btn ms-5"
+            >
               <FontAwesomeIcon icon={faPlus} /> New Dashboard
             </button>
           </div>
         </div>
       </section>
+
       {/* pagination sorby and view section  */}
       <section className="d-flex align-items-center justify-content-between mt-5 ">
         <Pagination />
@@ -36,10 +57,19 @@ const DashBoard = () => {
           <ViewBy />
         </div>
       </section>
+
       {/* our daashboard data */}
       <section>
         <DashboardTable />
       </section>
+      {modalIsOpen && (
+        <section>
+          <SetUpModal modalIsOpen={openModal} closeModal={closeModal} />
+        </section>
+      )}
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 };

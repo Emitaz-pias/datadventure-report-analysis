@@ -6,9 +6,10 @@ import {
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 import "./DashboardTable.css";
-import { Dropdown } from "bootstrap";
 
 const DashboardTable = () => {
+  // show sites name here
+  const siteName = ["site 1", "site 2", "site 3", "site 4"];
   const [open, setOpen] = useState(false);
   const [alreadyOpen, setAlreadyOpen] = useState(true);
   const [responseId, setResponseId] = useState("");
@@ -29,8 +30,9 @@ const DashboardTable = () => {
   // const handleMouseEnter = () => {
 
   // }
-  const handleTdClick = (surveyId, responseId, alredyOpen) => {
+  const handleTdClick = (surveyId, responseId) => {
     // console.log(surveyId);
+    setAlreadyOpen(!alreadyOpen);
     if (alreadyOpen === true) {
       setOpen(false);
     } else {
@@ -58,10 +60,8 @@ const DashboardTable = () => {
           <div>
             <Row className="tBody">
               <Col
-                onClick={() =>
-                  handleTdClick(response.surveyId, response._id, alreadyOpen)
-                }
-                onMouseLeave={() => setAlreadyOpen(false)}
+                onClick={() => handleTdClick(response.surveyId, response._id)}
+                onMouseLeave={() => setAlreadyOpen(!alreadyOpen)}
                 className="ms-2"
                 md={5}
               >
@@ -74,16 +74,25 @@ const DashboardTable = () => {
               </Col>
 
               <Col className="ms-5" md={3}>
-                Modified
+                {open === true && response._id === responseId ? (
+                  <p>Rachel Bro Modified It</p>
+                ) : (
+                  "Modified"
+                )}
               </Col>
               <Col className="ms-5" md={3}>
                 User
               </Col>
               {open === true && response._id === responseId ? (
-                <Row className="ms-5">hello</Row>
+                <Row className="ms-5">
+                  {" "}
+                  <h6 className="IMPLEMENTED">IMPLEMENTED IN</h6>
+                  {siteName.map((site) => (
+                    <p>{site}</p>
+                  ))}
+                </Row>
               ) : null}
             </Row>
-
             <hr />
           </div>
         ))}

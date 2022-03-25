@@ -1,4 +1,4 @@
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
@@ -20,6 +20,10 @@ Modal.setAppElement("#root");
 
 const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
   const [allResponses, setAllResponses] = useState([]);
+  const [surveySelected, setSelectedSurvey] = useState(false);
+  const [selectedSurveyIndex, setSelectedSurveyIndex] = useState("");
+
+  // load data
   useEffect(() => {
     const loadSurveyResponsesFromServer = async () => {
       const res = await fetch(
@@ -30,6 +34,10 @@ const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
     };
     loadSurveyResponsesFromServer();
   }, []);
+  const handleSelectDataSourceSurvey = (id, index) => {
+    setSelectedSurvey(!surveySelected);
+    setSelectedSurveyIndex(index);
+  };
   return (
     <div>
       <Modal
@@ -64,10 +72,25 @@ const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
             <section>
               <h5 className="customH5 text-center">DATA SOURCE</h5>
               {/* // display the survey name of that response  */}
-              {allResponses.map((response) => (
+              {allResponses.map((response, i) => (
                 <div className="surveysTable ms-3">
-                  <Row className="border p-1  singleSurveyRow rounded-top">
-                    <p>{response.surveyName}</p>
+                  <Row
+                    onClick={() =>
+                      handleSelectDataSourceSurvey(response.surveyId, i)
+                    }
+                    className={`border p-1 singleSurveyRow rounded-top`}
+                  >
+                    <div className="d-flex justify-content-between">
+                      <p>{response.surveyName}</p>
+                      {selectedSurveyIndex === i && surveySelected ? (
+                        <FontAwesomeIcon
+                          className="me-5 pe-3"
+                          color="#1B476B"
+                          size="2x"
+                          icon={faCheck}
+                        />
+                      ) : null}
+                    </div>
                   </Row>
                 </div>
               ))}

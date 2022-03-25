@@ -22,8 +22,10 @@ const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
   const [allResponses, setAllResponses] = useState([]);
   const [surveySelected, setSelectedSurvey] = useState(false);
   const [selectedSurveyIndex, setSelectedSurveyIndex] = useState("");
+  const [choosenSurvey, setChoosenSurvey] = useState([]);
+  const [questions, setQuestions] = useState([]);
 
-  // load data
+  // load the source survey data
   useEffect(() => {
     const loadSurveyResponsesFromServer = async () => {
       const res = await fetch(
@@ -34,10 +36,35 @@ const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
     };
     loadSurveyResponsesFromServer();
   }, []);
-  const handleSelectDataSourceSurvey = (id, index) => {
+
+  const handleSelectDataSourceSurvey = async (id, index, whole) => {
     setSelectedSurvey(!surveySelected);
     setSelectedSurveyIndex(index);
+    // console.log("whole,", whole);
+    const questionsArray = [];
+    whole.answers.map((ans) => {
+      ans.questions.map((q) => {
+        questionsArray.push(q);
+        return setQuestions(questionsArray);
+      });
+    });
+    // const res = await fetch(
+    //   `https://datadventure-backend.herokuapp.com/survey/get/${id}`
+    // );
+    // const data = await res.json();
+    // setChoosenSurvey(data);
+    // // map all teh questions to gather all the questions from selcted survey
+
+    // if (choosenSurvey.data !== undefined) {
+    //   const questionsArray = [];
+    //   choosenSurvey.data.surveyQuestions.map((singleSection) => {
+    //     singleSection.questions.map((qustns) => {
+    //       setQuestions(qustns);
+    //     });
+    //   });
+    // }
   };
+
   return (
     <div>
       <Modal
@@ -76,7 +103,11 @@ const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
                 <div className="surveysTable ms-3">
                   <Row
                     onClick={() =>
-                      handleSelectDataSourceSurvey(response.surveyId, i)
+                      handleSelectDataSourceSurvey(
+                        response.surveyId,
+                        i,
+                        response
+                      )
                     }
                     className={`border p-1 singleSurveyRow rounded-top`}
                   >
@@ -97,6 +128,10 @@ const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
             </section>
             <section>
               <h5 className="customH5 me-5 pe-5">QUESTIONS TO ANALYZE</h5>
+              {questions !== undefined &&
+                questions.map((question, index) => (
+                  <Row key={index}>{question.question}</Row>
+                ))}
             </section>
           </div>
         </main>

@@ -25,8 +25,8 @@
   cursor: pointer;
 }
 .indicatorBox {
-  width: 30em;
-  height: 15em;
+  width: 27em;
+  height: 12em;
   border: 3px solid #727272;
   border-radius: 5px;
 }
@@ -39,4 +39,18 @@
   letter-spacing: 0em;
   text-align: center;
   color: #727272;
+}
+.dashboardName {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.reportName {
+  width: 40%;
+}
+.description {
+  width: 90%;
+}
+.formClosed {
+  margin-top: 15em;
 }

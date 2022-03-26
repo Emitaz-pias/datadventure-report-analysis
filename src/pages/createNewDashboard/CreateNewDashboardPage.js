@@ -1,15 +1,23 @@
-import { faPen, faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronLeft,
+  faChevronRight,
+  faPen,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Footer from "../../components/footer/Footer";
 import NavBar from "../../components/navBar/NavBar";
 import "./CreateNewDashBoard.css";
-
+import sliderPage1 from "./charts/ChartsSliderDataPage1";
+import sliderPage2 from "./charts/ChartsSliderDataPage2";
 const CreateNewDashboardPage = () => {
   const [newDashBoardCreateClicked, setNewDashBoardCreateClicked] =
     useState(false);
   const [addOnClicked, setAddOnClicked] = useState(false);
+  const [choosingVisuals, setChoosingVisuals] = useState(false);
+  const [chartsPageNo, setChartsPageNo] = useState("1");
   const handleNameDashboard = () => {
     setNewDashBoardCreateClicked(!newDashBoardCreateClicked);
   };
@@ -21,11 +29,19 @@ const CreateNewDashboardPage = () => {
   const onSubmit = (data) => console.log(data);
   const handleAddNewWidget = () => {
     setAddOnClicked(true);
+    setChoosingVisuals(true);
   };
   const handleCancelWidget = () => {
     setAddOnClicked(false);
+    setChoosingVisuals(false);
   };
-  console.log(addOnClicked);
+  const handlePrevious = (page) => {
+    setChartsPageNo(page);
+  };
+  const handleNext = (page) => {
+    setChartsPageNo(page);
+  };
+
   return (
     <main>
       <NavBar></NavBar>
@@ -93,6 +109,80 @@ const CreateNewDashboardPage = () => {
             type="submit"
           /> */}
           </form>
+        </section>
+      )}
+
+      {/* // the charts reee? */}
+      {choosingVisuals && (
+        <section className="mt-5">
+          <div className="d-flex ms-5 ps-3 justify-content-between">
+            <h3 className="clickInst">
+              <b>Click</b> or <b>Drag and Drop </b>your metric selection below
+            </h3>
+            <div className="me-5 pe-5">
+              <button
+                onClick={() => handlePrevious("1")}
+                className="previous me-5 "
+              >
+                <FontAwesomeIcon icon={faChevronLeft} />
+              </button>
+
+              <span
+                className={`${
+                  chartsPageNo === "1" ? "active2" : "non-active"
+                } me-2 pNumber`}
+              >
+                1
+              </span>
+              <span
+                className={`${
+                  chartsPageNo === "2" ? "active1" : "non-active"
+                } ms-2 pNumber`}
+              >
+                2
+              </span>
+
+              <button onClick={() => handleNext("2")} className="next ms-5">
+                <FontAwesomeIcon icon={faChevronRight} />
+              </button>
+            </div>
+          </div>
+          <div className="chartsReel d-inline-flex align-items-center  ms-5 mt-5">
+            {chartsPageNo === "1"
+              ? sliderPage1.map((chart) => (
+                  <div className="singleChart  text-center ms-5 ">
+                    <div id="pageOne">
+                      <p>
+                        <img
+                          className="chartImg mt-2 "
+                          src={chart.image}
+                          alt=""
+                        />
+                      </p>
+                      <p id={`${chart.id}`} className="chartsName">
+                        {chart.title}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              : sliderPage2.map((chart) => (
+                  <div className="singleChart  text-center ms-5 ">
+                    <div id="pageOne">
+                      <p>
+                        <img
+                          className="chartImg mt-2 "
+                          src={chart.image}
+                          alt=""
+                        />
+                      </p>
+                      <p id={`${chart.id}`} className="chartsName">
+                        {chart.title}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+            {}
+          </div>
         </section>
       )}
 

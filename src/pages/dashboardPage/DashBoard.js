@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import Footer from "../../components/footer/Footer";
 import NavBar from "../../components/navBar/NavBar";
 import Pagination from "../../components/pagination/Pagination";
-import SetUpModal from "../setupModal/SetUpModal";
+import SetUpModal from "../setupModal.js/SetUpModal";
 import "./Dashboard.css";
 import DashboardTable from "./DashboardTable";
 import SortByDropDown from "./SortByDropDown";

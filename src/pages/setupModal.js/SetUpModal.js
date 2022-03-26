@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import Modal from "react-modal";
+import { Link } from "react-router-dom";
+import Pagination from "../../components/pagination/Pagination";
 import "./SetUpModal.css";
 
 const customStyles = {
@@ -22,8 +24,13 @@ const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
   const [allResponses, setAllResponses] = useState([]);
   const [surveySelected, setSelectedSurvey] = useState(false);
   const [selectedSurveyIndex, setSelectedSurveyIndex] = useState("");
-  const [choosenSurvey, setChoosenSurvey] = useState([]);
+  const [choosenQestions, setChoosenQuestion] = useState([]);
   const [questions, setQuestions] = useState([]);
+
+  // slice up the surveys..
+
+  const slicedSurveys = allResponses.slice(0, 7);
+  const slicedQuesitons = questions.slice(0, 7);
 
   // load the source survey data
   useEffect(() => {
@@ -64,7 +71,22 @@ const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
     //   });
     // }
   };
+  const handleQuestionClick = (questions) => {
+    const qArray = [...choosenQestions, questions];
+    setChoosenQuestion(qArray);
+  };
+  const handleRemoveQuestion = (questionIndex) => {
+    for (let i = 0; i < choosenQestions.length; i++) {
+      if (choosenQestions[i] === questionIndex) {
+        const removedArray = choosenQestions.splice(i, 1);
+        const removedItem = removedArray[0];
+        // const qArray = [...choosenQestions];
 
+        // setChoosenQuestion(qArray);
+        // console.log(qArray, "q arry");
+      }
+    }
+  };
   return (
     <div>
       <Modal
@@ -96,11 +118,11 @@ const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
 
           {/* show the survey and questions to analyze here */}
           <div className="d-flex justify-content-between mt-4">
-            <section>
+            <section className="surveysTable">
               <h5 className="customH5 text-center">DATA SOURCE</h5>
               {/* // display the survey name of that response  */}
-              {allResponses.map((response, i) => (
-                <div className="surveysTable ms-3">
+              {slicedSurveys.map((response, i) => (
+                <div key={i} className=" ms-3">
                   <Row
                     onClick={() =>
                       handleSelectDataSourceSurvey(
@@ -125,14 +147,50 @@ const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
                   </Row>
                 </div>
               ))}
+              <Pagination />
             </section>
-            <section>
+            <section className="questionsTable">
               <h5 className="customH5 me-5 pe-5">QUESTIONS TO ANALYZE</h5>
               {questions !== undefined &&
-                questions.map((question, index) => (
-                  <Row key={index}>{question.question}</Row>
+                slicedQuesitons.map((question, index) => (
+                  <div key={index} className="">
+                    <Row
+                      onClick={() =>
+                        handleQuestionClick({
+                          question: question.question,
+                          index: index,
+                        })
+                      }
+                      className="border p-1 rounded-top singleQuestionRow"
+                    >
+                      <div className="d-flex justify-content-between">
+                        <p>{question.question}</p>
+                        {choosenQestions.map((q) =>
+                          q === question.question ? (
+                            <FontAwesomeIcon
+                              className="me-5 pe-3"
+                              color="#1B476B"
+                              size="2x"
+                              icon={faCheck}
+                              onClick={() => handleRemoveQuestion(index)}
+                            />
+                          ) : null
+                        )}
+                      </div>
+                    </Row>
+                  </div>
                 ))}
+              {<Pagination />}
             </section>
+          </div>
+          <div className="d-flex justify-content-end me-5 mt-4">
+            <button className="btn customCancelButton me-5 ">Cancel</button>
+            <Link
+              to="/createNewDashboard"
+              className="btn customContinueButton ms-5"
+            >
+              Continue
+            </Link>
           </div>
         </main>
       </Modal>

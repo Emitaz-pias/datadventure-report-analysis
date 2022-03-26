@@ -9,6 +9,7 @@ import "./CreateNewDashBoard.css";
 const CreateNewDashboardPage = () => {
   const [newDashBoardCreateClicked, setNewDashBoardCreateClicked] =
     useState(false);
+  const [addOnClicked, setAddOnClicked] = useState(false);
   const handleNameDashboard = () => {
     setNewDashBoardCreateClicked(!newDashBoardCreateClicked);
   };
@@ -18,7 +19,13 @@ const CreateNewDashboardPage = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  const handleAddNewWidget = () => {
+    setAddOnClicked(true);
+  };
+  const handleCancelWidget = () => {
+    setAddOnClicked(false);
+  };
+  console.log(addOnClicked);
   return (
     <main>
       <NavBar></NavBar>
@@ -33,9 +40,21 @@ const CreateNewDashboardPage = () => {
             <FontAwesomeIcon color={"gray"} className="" icon={faPen} />
           </p>
         </div>
-        <button className="custom-btn  btn mt-5 me-5 ">
-          <FontAwesomeIcon icon={faPlus} /> Add Widgets
-        </button>
+        {addOnClicked ? (
+          <button
+            onClick={handleCancelWidget}
+            className="custom-white-btn  btn mt-5 me-5 "
+          >
+            Cancel
+          </button>
+        ) : (
+          <button
+            onClick={handleAddNewWidget}
+            className="custom-btn  btn mt-5 me-5 "
+          >
+            <FontAwesomeIcon icon={faPlus} /> Add Widgets
+          </button>
+        )}
       </section>
       {newDashBoardCreateClicked && (
         <section className="ms-4">

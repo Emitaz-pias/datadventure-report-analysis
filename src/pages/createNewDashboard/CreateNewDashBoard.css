@@ -54,3 +54,13 @@
 .formClosed {
   margin-top: 15em;
 }
+
+.custom-white-btn {
+  height: 2.5em;
+  width: 8.5em;
+  color: #68c6de;
+  border: 2px solid #68c6de;
+}
+.custom-white-btn:hover {
+  color: #68c6de;
+}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 
 const Pagination = () => {
-  const [items, setItems] = useState([]);
+  // const [items, setItems] = useState([]);
   const [pageCount, setpageCount] = useState(0);
   let limit = 10;
 
@@ -14,7 +14,8 @@ const Pagination = () => {
       const data = await res.json();
       const total = res.headers.get("x-total-count");
       setpageCount(Math.ceil(total / limit));
-      setItems(data);
+      // setItems(data);
+      console.log(data);
     };
     getEle();
   }, [limit]);
@@ -35,7 +36,7 @@ const Pagination = () => {
     let currentPage = data.selected + 1;
     const loadDataFromServer = await fetchData(currentPage);
     console.log(loadDataFromServer, "fethed data");
-    setItems(loadDataFromServer);
+    // setItems(loadDataFromServer);
   };
 
   return (

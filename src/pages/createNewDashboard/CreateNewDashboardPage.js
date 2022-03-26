@@ -24,7 +24,7 @@ const CreateNewDashboardPage = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    // formState: { errors },
   } = useForm();
   const onSubmit = (data) => console.log(data);
   const handleAddNewWidget = () => {

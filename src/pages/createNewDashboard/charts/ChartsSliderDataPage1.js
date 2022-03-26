@@ -1,4 +1,4 @@
-import { faChartBar, faTable } from "@fortawesome/free-solid-svg-icons";
+import { faChartBar } from "@fortawesome/free-solid-svg-icons";
 
 const chartSliderDataPageOne = [
   {

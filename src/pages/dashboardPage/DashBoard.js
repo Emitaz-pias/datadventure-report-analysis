@@ -1,6 +1,6 @@
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Dropdown } from "bootstrap";
+// import { Dropdown } from "bootstrap";
 import React, { useState } from "react";
 import Footer from "../../components/footer/Footer";
 import NavBar from "../../components/navBar/NavBar";
@@ -12,7 +12,7 @@ import SortByDropDown from "./SortByDropDown";
 import ViewBy from "./ViewBy";
 
 const DashBoard = () => {
-  const [allResponses, setAllResponses] = useState([]);
+  // const [allResponses, setAllResponses] = useState([]);
 
   // fuctions of modal
 

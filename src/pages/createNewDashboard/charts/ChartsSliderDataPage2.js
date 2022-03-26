@@ -1,4 +1,4 @@
-import { faChartBar, faTable } from "@fortawesome/free-solid-svg-icons";
+import { faTable } from "@fortawesome/free-solid-svg-icons";
 const chartSliderDataPageTwo = [
   {
     id: "textStream",

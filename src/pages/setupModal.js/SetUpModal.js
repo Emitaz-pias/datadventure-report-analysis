@@ -50,7 +50,7 @@ const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
     // console.log("whole,", whole);
     const questionsArray = [];
     whole.answers.map((ans) => {
-      ans.questions.map((q) => {
+      return ans.questions.map((q) => {
         questionsArray.push(q);
         return setQuestions(questionsArray);
       });
@@ -78,10 +78,9 @@ const SetUpModal = ({ modalIsOpen, closeModal, id }) => {
   const handleRemoveQuestion = (questionIndex) => {
     for (let i = 0; i < choosenQestions.length; i++) {
       if (choosenQestions[i] === questionIndex) {
-        const removedArray = choosenQestions.splice(i, 1);
-        const removedItem = removedArray[0];
+        // const removedArray = choosenQestions.splice(i, 1);
+        // const removedItem = removedArray[0];
         // const qArray = [...choosenQestions];
-
         // setChoosenQuestion(qArray);
         // console.log(qArray, "q arry");
       }

@@ -16,3 +16,27 @@
   border-radius: 6px;
   padding: 10px, 12px, 10px, 12px;
 }
+.penBorder {
+  border: 0.2em #727272 solid;
+  height: 28px;
+  width: 28px;
+  border-radius: 0px;
+  margin-top: 3.6em !important;
+  cursor: pointer;
+}
+.indicatorBox {
+  width: 30em;
+  height: 15em;
+  border: 3px solid #727272;
+  border-radius: 5px;
+}
+.tapOn {
+  font-family: Fira Sans;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #727272;
+}

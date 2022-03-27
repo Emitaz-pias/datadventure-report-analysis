@@ -9,7 +9,7 @@ const NavBar = () => {
   return (
     <div className="navbar d-flex align-items-center">
       <Nav.Item>
-        <Nav.Link href="/">
+        <Nav.Link className="logoLink" href="/">
           <img className="logo" src={logo} alt="this is the logo" />
         </Nav.Link>
       </Nav.Item>

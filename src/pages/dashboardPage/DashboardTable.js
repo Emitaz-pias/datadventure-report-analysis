@@ -49,7 +49,7 @@ const DashboardTable = () => {
           <Col className="ms-5" md={3}>
             Modified
           </Col>
-          <Col className="ms-5" md={3}>
+          <Col className="ms-3" md={3}>
             User
           </Col>
         </Row>

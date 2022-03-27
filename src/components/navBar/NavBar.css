@@ -7,6 +7,10 @@
   position: relative;
   left: 60px;
 }
+.logoLink:hover {
+  background-color: none !important;
+  transition: none !important;
+}
 .navItem {
   font-family: Fira Sans;
   font-size: 18px;
@@ -16,9 +20,17 @@
   text-align: left;
   color: #1b476b;
 }
+.navItem:hover {
+  color: white !important;
+  border-radius: 5px;
+}
 .bellIcon {
   color: #727272 !important;
   position: relative;
   right: 0.1em;
   bottom: 0.2em;
+}
+.bellIcon:hover {
+  color: white !important;
+  border-radius: 5px;
 }

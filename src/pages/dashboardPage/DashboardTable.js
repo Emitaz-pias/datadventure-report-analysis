@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronCircleRight,
@@ -39,29 +39,31 @@ const DashboardTable = () => {
     setResponseId(responseId);
   };
   return (
-    <main className="ms-5">
-      <section className="responsesTable ms-5 border">
-        <Row className="thead   mt-3 mb-3">
+    <main>
+      <Container className="responsesTable border">
+        <Row className="thead flex-wrap border border-danger  mt-3 mb-3">
           {/* <span className="d-flex justify-content-around align-items-center"> */}
-          <Col className="ms-2" md={5}>
+          <Col className="ms-2 order-0" md={5} sm={3} xs={3}>
             Name
           </Col>
-          <Col className="ms-5" md={3}>
+          <Col className="ms-5 order-1" md={3} sm={3} xs={3}>
             Modified
           </Col>
-          <Col className="ms-3" md={3}>
+          <Col className="ms-3 order-2" md={3} sm={3} xs={3}>
             User
           </Col>
         </Row>
         <hr />{" "}
         {allResponses.map((response) => (
           <div>
-            <Row className="tBody">
+            <Row className="tBody flex-wrap">
               <Col
                 onClick={() => handleTdClick(response.surveyId, response._id)}
                 onMouseLeave={() => setAlreadyOpen(!alreadyOpen)}
                 className="ms-2"
                 md={5}
+                sm={12}
+                xs={12}
               >
                 {response.surveyName}
                 {open === true && response._id === responseId ? (
@@ -71,14 +73,14 @@ const DashboardTable = () => {
                 )}
               </Col>
 
-              <Col className="ms-5" md={3}>
+              <Col className="ms-5" md={3} sm={12} xs={12}>
                 {open === true && response._id === responseId ? (
                   <p>Rachel Bro Modified It</p>
                 ) : (
                   "Modified"
                 )}
               </Col>
-              <Col className="ms-5" md={3}>
+              <Col className="ms-5" md={3} sm={12} xs={12}>
                 User
               </Col>
               {open === true && response._id === responseId ? (
@@ -94,7 +96,7 @@ const DashboardTable = () => {
             <hr />
           </div>
         ))}
-      </section>
+      </Container>
     </main>
   );
 };

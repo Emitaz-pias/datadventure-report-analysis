@@ -38,18 +38,25 @@ const DashBoard = () => {
 
       <NavBar />
       <Container fluid>
-        <Row className="mt-2 flex-wrap border border-danger">
+        <Row className="mt-2 flex-wrap">
           <Col className="mt-2 order-1" lg={5} md={5} sm={12} xs={12}>
             <h2 className="dashboard-heading ms-5">Dashboards</h2>
           </Col>
-          <Col className="mt-2 order-3" lg={3} md={3} sm={12} xs={12}>
+          <Col
+            className="mt-4
+           order-3"
+            lg={3}
+            md={3}
+            sm={12}
+            xs={12}
+          >
             <input
               placeholder="&#xF002;            Search Dashboard"
               className="me-5 searchInput form-control"
               type="text"
             />
           </Col>
-          <Col className="mt-2 order-2" lg={3} md={3} sm={12} xs={12}>
+          <Col className="mt-3 order-2" lg={3} md={3} sm={12} xs={12}>
             <button
               onClick={handleNewDashboard}
               className="custom-btn  btn ms-5"
@@ -58,29 +65,33 @@ const DashBoard = () => {
             </button>
           </Col>
         </Row>
-      </Container>
 
-      {/* pagination sorby and view section  */}
-      <section className="d-flex align-items-center justify-content-between mt-5 ">
-        <Pagination />
-        <div className="d-flex mb-2">
-          <SortByDropDown />
-          <ViewBy />
-        </div>
-      </section>
+        {/* pagination sorby and view section  */}
+        <Row className="mt-5 flex-wrap-reverse">
+          <Col className="mt-2" md={7} sm={12} xs={12}>
+            <Pagination />
+          </Col>
+          <Col className="mt-2" md={2} sm={6} xs={6}>
+            <SortByDropDown />
+          </Col>
+          <Col className="mt-2" md={2} sm={6} xs={6}>
+            <ViewBy />
+          </Col>
+        </Row>
 
-      {/* our daashboard data */}
-      <section>
-        <DashboardTable />
-      </section>
-      {modalIsOpen && (
+        {/* our daashboard data */}
         <section>
-          <SetUpModal modalIsOpen={openModal} closeModal={closeModal} />
+          <DashboardTable />
         </section>
-      )}
-      <div>
-        <Footer />
-      </div>
+        {modalIsOpen && (
+          <section>
+            <SetUpModal modalIsOpen={openModal} closeModal={closeModal} />
+          </section>
+        )}
+        <div>
+          <Footer />
+        </div>
+      </Container>
     </div>
   );
 };

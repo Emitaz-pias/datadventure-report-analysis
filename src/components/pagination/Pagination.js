@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Col, Row } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 
 const Pagination = () => {
@@ -40,26 +41,28 @@ const Pagination = () => {
   };
 
   return (
-    <div style={{ zIndex: "-1" }} className="ms-5 ps-5 mt-2">
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel=" >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        pageCount={pageCount}
-        previousLabel="<"
-        containerClassName="pagination"
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        activeClassName="active"
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-      />
-    </div>
+    <Row style={{ zIndex: "-1" }} className=" mt-2">
+      <Col md={12} sm={3} xs={3}>
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel=" >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="<"
+          containerClassName="pagination"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          activeClassName="active"
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+        />
+      </Col>
+    </Row>
   );
 };
 

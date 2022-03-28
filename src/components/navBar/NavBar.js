@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav } from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
 import logo from "../../images/logo.png";
@@ -7,56 +7,44 @@ import "./NavBar.css";
 
 const NavBar = () => {
   return (
-    <div className="navbar d-flex align-items-center">
-      <Nav.Item>
-        <Nav.Link className="logoLink" href="/">
+    <Navbar collapseOnSelect expand="lg">
+      <Container>
+        <Navbar.Brand className="me-5 pe-5" href="/">
           <img className="logo" src={logo} alt="this is the logo" />
-        </Nav.Link>
-      </Nav.Item>
-
-      <Nav className="justify-content-end" activeKey="/home">
-        <Nav.Item>
-          <Nav.Link className="navItem" href="/home">
-            Home
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link className="navItem" eventKey="link-1">
-            Reports
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link className="navItem" eventKey="link-2">
-            Clients
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link className="navItem" eventKey="link-2">
-            Managers
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link className="navItem" eventKey="link-2">
-            Add Tasks
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link className="navItem" eventKey="link-2">
-            Surveys
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link className="navItem" eventKey="link-2">
-            Configuration
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link className="bellIcon" eventKey="link-2">
-            <FontAwesomeIcon size="2x" icon={faBell} />
-          </Nav.Link>
-        </Nav.Item>
-      </Nav>
-    </div>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link className="navItem ms-4 p-1 " href="/home">
+              Home
+            </Nav.Link>
+            <Nav.Link className="navItem ms-4 p-1 " eventKey="link-1">
+              Reports
+            </Nav.Link>
+            <Nav.Link className="navItem ms-4 p-1 " eventKey="link-2">
+              Clients
+            </Nav.Link>
+            <Nav.Link className="navItem ms-4 p-1" eventKey="link-2">
+              Managers
+            </Nav.Link>
+            <Nav.Link className="navItem ms-4 p-1" eventKey="link-2">
+              Add Tasks
+            </Nav.Link>
+            <Nav.Link className="navItem ms-4 p-1 " eventKey="link-2">
+              Surveys
+            </Nav.Link>
+            <Nav.Link className="navItem ms-4 p-1 " eventKey="link-2">
+              Configuration
+            </Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link className="bellIcon" eventKey="link-2">
+              <FontAwesomeIcon size="2x" icon={faBell} />
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

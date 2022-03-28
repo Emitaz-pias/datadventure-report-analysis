@@ -20,6 +20,9 @@
   text-align: left;
   color: #1b476b;
 }
+.navbar-brand:hover {
+  background-color: #fff;
+}
 .navItem:hover {
   color: white !important;
   border-radius: 5px;

@@ -41,12 +41,12 @@ const DashboardTable = () => {
   return (
     <main>
       <Container className="responsesTable border">
-        <Row className="thead flex-wrap border border-danger  mt-3 mb-3">
+        <Row className="thead flex-wrap   mt-3 mb-3">
           {/* <span className="d-flex justify-content-around align-items-center"> */}
           <Col className="ms-2 order-0" md={5} sm={3} xs={3}>
-            Name\\
+            Name
           </Col>
-          <Col className="ms-5 order-1" md={3} sm={3} xs={3}>
+          <Col className="ms-2 order-1" md={3} sm={3} xs={3}>
             Modified
           </Col>
           <Col className=" order-2" md={3} sm={3} xs={3}>
@@ -60,10 +60,10 @@ const DashboardTable = () => {
               <Col
                 onClick={() => handleTdClick(response.surveyId, response._id)}
                 onMouseLeave={() => setAlreadyOpen(!alreadyOpen)}
-                className="ms-2"
+                className="order-0 ms-2"
                 md={5}
-                sm={12}
-                xs={12}
+                sm={3}
+                xs={3}
               >
                 {response.surveyName}
                 {open === true && response._id === responseId ? (
@@ -73,14 +73,14 @@ const DashboardTable = () => {
                 )}
               </Col>
 
-              <Col className="ms-5" md={3} sm={12} xs={12}>
+              <Col className="ms-2 order-1" md={3} sm={3} xs={3}>
                 {open === true && response._id === responseId ? (
                   <p>Rachel Bro Modified It</p>
                 ) : (
                   "Modified"
                 )}
               </Col>
-              <Col className="ms-5" md={3} sm={12} xs={12}>
+              <Col className="ms-2 order-2" md={3} sm={3} xs={3}>
                 User
               </Col>
               {open === true && response._id === responseId ? (

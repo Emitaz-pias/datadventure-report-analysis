@@ -12,7 +12,8 @@ import NavBar from "../../components/navBar/NavBar";
 import "./CreateNewDashBoard.css";
 import sliderPage1 from "./charts/ChartsSliderDataPage1";
 import sliderPage2 from "./charts/ChartsSliderDataPage2";
-import { DragDropContext } from "react-beautiful-dnd";
+import ChartsEditModal from "./chartsEditModal/ChartsEditModal";
+// import { DragDropContext } from "react-beautiful-dnd";
 
 const CreateNewDashboardPage = () => {
   const [newDashBoardCreateClicked, setNewDashBoardCreateClicked] =
@@ -21,6 +22,8 @@ const CreateNewDashboardPage = () => {
   const [choosingVisuals, setChoosingVisuals] = useState(false);
   const [chartsPageNo, setChartsPageNo] = useState("1");
   const [draggedChart, seDragedChart] = useState({});
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const handleNameDashboard = () => {
     setNewDashBoardCreateClicked(!newDashBoardCreateClicked);
   };
@@ -47,6 +50,7 @@ const CreateNewDashboardPage = () => {
   // when click on charts
   const handleSlectChart = (chart) => {
     seDragedChart(chart);
+    openModal();
   };
   const handleDrag = (chart, event) => {
     event.preventDefault();
@@ -57,6 +61,14 @@ const CreateNewDashboardPage = () => {
     ev.dataTransfer.allowDrop = true;
     ev.dataTransfer.effectAllowed = true;
   };
+  console.log("draggedChart", draggedChart);
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   return (
     <main>
       <NavBar></NavBar>
@@ -211,6 +223,14 @@ const CreateNewDashboardPage = () => {
                 ))}
             {}
           </div>
+        </section>
+      )}
+      {modalIsOpen && (
+        <section id="chartsModal">
+          <ChartsEditModal
+            modalIsOpen={modalIsOpen}
+            closeModal={closeModal}
+          ></ChartsEditModal>
         </section>
       )}
 

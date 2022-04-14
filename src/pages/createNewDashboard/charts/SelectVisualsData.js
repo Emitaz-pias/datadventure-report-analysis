@@ -1,22 +1,5 @@
 const slectVisualsData = [
   {
-    id: "timeSeries",
-    title: "Tmeseries",
-
-    path: "/timeseriesChart",
-  },
-  {
-    id: "NotesNLinks",
-    title: "Notes and Links",
-
-    path: "/noteChart",
-  },
-  {
-    id: "scatterPlot",
-    title: "Scatter Plot",
-    path: "/scatterChart",
-  },
-  {
     id: "pie",
     title: "Pie",
 
@@ -34,17 +17,37 @@ const slectVisualsData = [
     path: "/dotChart",
   },
   {
-    id: "textStream",
-    title: "Text Stream",
-
-    path: "/textStreamChart",
+    id: "scatterPlot",
+    title: "Scatter Plot",
+    path: "/scatterChart",
   },
+
   {
-    id: "textTimeline",
-    title: "Text Timeline",
+    id: "timeSeries",
+    title: "Tmeseries",
 
-    path: "/textTimeLineChart",
+    path: "/timeseriesChart",
   },
+
+  // {
+  //   id: "NotesNLinks",
+  //   title: "Notes and Links",
+
+  //   path: "/noteChart",
+  // },
+
+  // {
+  //   id: "textStream",
+  //   title: "Text Stream",
+
+  //   path: "/textStreamChart",
+  // },
+  // {
+  //   id: "textTimeline",
+  //   title: "Text Timeline",
+
+  //   path: "/textTimeLineChart",
+  // },
   {
     id: "table",
     title: "Table",

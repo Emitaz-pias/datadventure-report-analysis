@@ -4,6 +4,7 @@
     }
 .chartName{
     padding:0.5em 1.2em;
+    width:8.2em;
     margin-left: 1em;
     border-radius:5px;
     color:#727272;
@@ -12,7 +13,6 @@
     font-family: Nunito;
 }
 .chartName:hover{
-   
     color:white;
     background-color: #62BAD1;
     border:2px solid #62BAD1;

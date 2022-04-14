@@ -43,6 +43,7 @@ const ChartsEditModal = ({ modalIsOpen, closeMdal }) => {
               style={{
                 height: "2.7em",
               }}
+              placeholder="Graph Title"
               type="text"
             ></input>
           </Col>

@@ -1,9 +1,10 @@
-import { faCross, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Col, Dropdown, Row } from "react-bootstrap";
+import { Col, Dropdown, Row, Button } from "react-bootstrap";
 import Modal from "react-modal";
 import "./ChartsEditModal.css";
+import slectVisualsData from "../charts/SelectVisualsData";
 
 const ChartsEditModal = ({ modalIsOpen, closeMdal }) => {
   const customStyles = {
@@ -77,6 +78,14 @@ const ChartsEditModal = ({ modalIsOpen, closeMdal }) => {
                 </Dropdown.Menu>
               </Dropdown>
             </div>
+          </Col>
+        </Row>
+        <Row className="mt-3">
+          <Col md={12}>
+            <h5 className="mb-3">Select Your Visualization</h5>
+            {slectVisualsData.map((chartName) => (
+              <button className="chartName">{chartName.title}</button>
+            ))}
           </Col>
         </Row>
       </main>

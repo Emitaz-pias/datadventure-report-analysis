@@ -1,0 +1,37 @@
+.navbar {
+  height: 80px;
+  box-shadow: 0px 3px 15px 0px #75757540;
+}
+.logo {
+  height: 3rem;
+}
+.logoLink:hover {
+  background-color: none !important;
+  transition: none !important;
+}
+.navItem {
+  font-family: Fira Sans;
+  font-size: 18px;
+  font-style: normal !important;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: #1b476b;
+}
+.navbar-brand:hover {
+  background-color: #fff;
+}
+.navItem:hover {
+  color: white !important;
+  border-radius: 5px;
+}
+.bellIcon {
+  color: #727272 !important;
+  position: relative;
+  right: 0.1em;
+  bottom: 0.2em;
+}
+.bellIcon:hover {
+  color: white !important;
+  border-radius: 5px;
+}

@@ -1,0 +1,20 @@
+.custom-dropdown {
+  height: 42px;
+  width: 198px;
+  border-radius: 6px;
+  background-color: #ffff;
+  border: 1px solid #cccccc;
+  color: #727272;
+}
+.custom-dropdown:hover {
+  height: 42px;
+  width: 198px;
+  border-radius: 6px;
+  background-color: #ffff;
+  border: 1px solid #cccccc;
+  color: #727272;
+}
+.custom-dropdown-menu {
+  background-color: #ffff;
+  color: #727272;
+}

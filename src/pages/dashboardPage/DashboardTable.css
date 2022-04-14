@@ -1,0 +1,23 @@
+.responsesTable {
+  width: 91% !important;
+  border-radius: 5px;
+}
+.thead {
+  font-family: Fira Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #727272;
+}
+.IMPLEMENTED {
+  font-family: Fira Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #727272;
+}

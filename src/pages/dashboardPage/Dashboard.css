@@ -1,0 +1,18 @@
+.dashboard-heading {
+  color: #040b11;
+}
+.searchInput {
+  font-family: FontAwesome;
+  width: 311px;
+}
+.custom-btn {
+  background-color: #68c6de;
+  color: white;
+  height: 42px;
+  width: 200px;
+  border-radius: 6px;
+}
+.custom-btn:hover {
+  background-color: #68c6de;
+  color: white;
+}

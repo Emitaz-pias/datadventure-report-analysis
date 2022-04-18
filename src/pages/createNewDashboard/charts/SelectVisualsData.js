@@ -2,7 +2,6 @@ const slectVisualsData = [
   {
     id: "pie",
     title: "Pie",
-
     path: "/pieChart",
   },
   {
@@ -13,7 +12,6 @@ const slectVisualsData = [
   {
     id: "dotMap",
     title: "Dot Map",
-
     path: "/dotChart",
   },
   {
@@ -25,7 +23,6 @@ const slectVisualsData = [
   {
     id: "timeSeries",
     title: "Tmeseries",
-
     path: "/timeseriesChart",
   },
 

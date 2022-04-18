@@ -17,3 +17,17 @@
     background-color: #62BAD1;
     border:2px solid #62BAD1;
 }
+.customListtype{
+    list-style:upper-alpha;
+}
+ol li::before {
+    content: upper-alpha;
+    border-radius: 5px;
+    font-weight: 900; 
+    display:block; 
+    width: 2em;
+    height:2em; 
+    margin-left: -1.7em;
+    z-index: -1; 
+    margin-top:-1.9em;
+  }

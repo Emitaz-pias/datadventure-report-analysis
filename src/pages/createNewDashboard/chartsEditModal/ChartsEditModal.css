@@ -19,6 +19,7 @@
 }
 .customListtype{
     list-style:upper-alpha;
+    font-weight: bold;
 }
 ol li::before {
     content: upper-alpha;

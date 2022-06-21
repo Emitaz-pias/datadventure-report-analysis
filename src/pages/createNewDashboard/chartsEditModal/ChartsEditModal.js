@@ -30,7 +30,7 @@ const ChartsEditModal = ({ modalIsOpen, closeMdal }) => {
       contentLabel=" charts Modal"
     >
       <main className="fullModal">
-        {/* // close switch and tile */}
+        {/* // close switch and title */}
         <div className="d-flex justify-content-between">
           <h3>Edit Widget</h3>
           <FontAwesomeIcon
@@ -96,6 +96,8 @@ const ChartsEditModal = ({ modalIsOpen, closeMdal }) => {
           </Col>
         </Row>
         <hr />
+
+        {/* // new metric button area */}
         <section>
           <div className="d-flex justify-content-between">
             <h5>Graph Your Data</h5>
@@ -104,47 +106,59 @@ const ChartsEditModal = ({ modalIsOpen, closeMdal }) => {
             </button>
           </div>
         </section>
+
         <section className="mt-2">
           {metricArray.map((metric, index) => (
             <ol className="mt-5 customListtype" key={index}>
               <li>
-                {" "}
-                <Row>
-                  <Col xs={1} md={1}>
-                    <p>Metric</p>
-                  </Col>
-                  <Col xs={1} md={2}>
+                <Row className="d-flex align-items-center">
+                  <Col
+                    className={
+                      "d-flex justify-content-between align-items-center"
+                    }
+                    xs={1}
+                    md={3}
+                  >
+                    <p>
+                      <b>Metric</b>
+                    </p>
                     <input
                       name="metric"
                       id="metric"
-                      className="ms-1 form-control"
+                      className="form-control ms-2 mb-1"
                       style={{
-                        height: "2.7em",
+                        height: "2.5em",
                       }}
-                      placeholder={`"Metric From Survey -Keyword"`}
+                      placeholder={`"Metric From Survey-Keyword"`}
                       type="text"
                     ></input>
                   </Col>
-                  <Col xs={1}>
+
+                  <Col
+                    className={
+                      "d-flex justify-content-between align-items-center"
+                    }
+                    xs={1}
+                    md={3}
+                  >
                     <p>From</p>
+                    <div className="mb-3">
+                      {" "}
+                      <label for="sourceTag">(Source Tags)</label>
+                      <input
+                        name="sourceTag"
+                        id="sourceTag"
+                        className="ms-1 form-control"
+                        style={{
+                          height: "2.7em",
+                        }}
+                        placeholder={"Survey"}
+                        type="text"
+                      ></input>
+                    </div>
                   </Col>
-                  <Col className="mb-3" xs={1} md={2}>
-                    <label for="sourceTag">(Source Tags)</label>
-                    <input
-                      name="sourceTag"
-                      id="sourceTag"
-                      className="ms-1 form-control"
-                      style={{
-                        height: "2.7em",
-                      }}
-                      placeholder={"Survey"}
-                      type="text"
-                    ></input>
-                  </Col>
-                  <Col xs={1} md={1}>
-                    <p>From</p>
-                  </Col>
-                  <Col className="mb-3" xs={1} md={2}>
+
+                  <Col className="mb-3" xs={1} md={3}>
                     <label for="sourceTag">(Country/Region Report Type)</label>
                     <Dropdown>
                       <Dropdown.Toggle
@@ -153,7 +167,6 @@ const ChartsEditModal = ({ modalIsOpen, closeMdal }) => {
                       >
                         Avg by
                       </Dropdown.Toggle>
-
                       <Dropdown.Menu className="custom-dropdown-menu">
                         <Dropdown.Item href="#/action-1">English</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">Bangla</Dropdown.Item>
@@ -161,11 +174,12 @@ const ChartsEditModal = ({ modalIsOpen, closeMdal }) => {
                       </Dropdown.Menu>
                     </Dropdown>
                   </Col>
-                  <Col md={2}>
+
+                  <Col xs={1} md={2}>
                     <input
                       name="sourceTag"
                       id="sourceTag"
-                      className="ms-1 form-control"
+                      className="ms-1 form-control text-center"
                       style={{
                         height: "2.7em",
                       }}
@@ -174,16 +188,18 @@ const ChartsEditModal = ({ modalIsOpen, closeMdal }) => {
                     ></input>
                   </Col>
                   <Col>
-                    <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
+                    <FontAwesomeIcon
+                      style={{ cursor: "pointer" }}
+                      icon={faTrashCan}
+                    ></FontAwesomeIcon>
                   </Col>
-                </Row>{" "}
-                <hr />
-                <Row>
-                  <Col md={1}>
-                    <p>Display</p>
-                  </Col>
+                </Row>
 
-                  <Col md={2}>
+                <hr />
+
+                <Row className={"d-flex align-items-center"}>
+                  <Col className={"d-flex justify-content-between"} md={3}>
+                    <p>Display</p>
                     <Dropdown>
                       <Dropdown.Toggle
                         className="custom-dropdown"
@@ -199,8 +215,9 @@ const ChartsEditModal = ({ modalIsOpen, closeMdal }) => {
                       </Dropdown.Menu>
                     </Dropdown>
                   </Col>
-                  <Col md={1}>Color</Col>
-                  <Col md={2}>
+
+                  <Col className={"d-flex justify-content-between"} md={3}>
+                    <p>Color</p>
                     <Dropdown>
                       <Dropdown.Toggle
                         className="custom-dropdown"
@@ -217,8 +234,8 @@ const ChartsEditModal = ({ modalIsOpen, closeMdal }) => {
                     </Dropdown>
                   </Col>
 
-                  <Col md={1}>Style</Col>
-                  <Col md={2}>
+                  <Col className={"d-flex justify-content-between"} md={3}>
+                    <p>Style</p>
                     <Dropdown>
                       <Dropdown.Toggle
                         className="custom-dropdown"
@@ -234,8 +251,9 @@ const ChartsEditModal = ({ modalIsOpen, closeMdal }) => {
                       </Dropdown.Menu>
                     </Dropdown>
                   </Col>
-                  <Col md={1}>Sttoke</Col>
-                  <Col md={2}>
+
+                  <Col className={"d-flex justify-content-between"} md={3}>
+                    <p>Stroke</p>
                     <Dropdown>
                       <Dropdown.Toggle
                         className="custom-dropdown"
